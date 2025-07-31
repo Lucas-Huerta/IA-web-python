@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.drawing-section {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.canvas-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#drawingCanvas {
+    border: 3px solid #ddd;
+    border-radius: 15px;
+    cursor: crosshair;
+    background: #f8f9fa;
+    transition: border-color 0.3s ease;
+}
+
+#drawingCanvas:hover {
+    border-color: #667eea;
+}
+
+.canvas-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+#instructionText {
+    color: #999;
+    font-size: 1.1rem;
+    background: rgba(255,255,255,0.9);
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: opacity 0.3s ease;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #666;
+    border: 2px solid #ddd;
+}
+
+.btn-secondary:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.results-section {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.prediction-result {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.prediction-result h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.prediction-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #667eea;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin: 15px 0;
+}
+
+.confidence {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.probabilities h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.probability-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.probability-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.probability-label {
+    font-weight: 600;
+    width: 30px;
+    text-align: center;
+}
+
+.probability-fill {
+    flex: 1;
+    height: 25px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.probability-value {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 12px;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    min-width: 0;
+}
+
+footer {
+    background: rgba(255,255,255,0.95);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.model-info h3 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.model-info p {
+    line-height: 1.8;
+    color: #666;
+    text-align: center;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    color: white;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-overlay p {
+    font-size: 1.2rem;
+}
+
+.hidden {
+    opacity: 0 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    #drawingCanvas {
+        width: 250px;
+        height: 250px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .drawing-section,
+    .results-section {
+        padding: 20px;
+    }
+} 

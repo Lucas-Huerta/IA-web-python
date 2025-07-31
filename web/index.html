@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification MNIST - IA Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p>Dessinez un chiffre (0-9) dans la zone ci-dessous et l'IA le reconnaîtra en temps réel!</p>
+        </header>
+
+        <main>
+            <div class="drawing-section">
+                <div class="canvas-container">
+                    <canvas id="drawingCanvas" width="280" height="280"></canvas>
+                    <div class="canvas-overlay">
+                        <p id="instructionText">Dessinez un chiffre ici</p>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="clearBtn" class="btn btn-secondary">Effacer</button>
+                    <button id="predictBtn" class="btn btn-primary">Prédire</button>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="prediction-result">
+                    <h2>Prédiction</h2>
+                    <div id="predictionDisplay" class="prediction-number">?</div>
+                    <div id="confidenceDisplay" class="confidence">Confiance: --</div>
+                </div>
+
+                <div class="probabilities">
+                    <h3>Probabilités pour chaque chiffre</h3>
+                    <div id="probabilityBars" class="probability-container">
+                        <!-- Les barres de probabilité seront générées par JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="spinner"></div>
+            <p>Chargement du modèle IA...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.16.3/dist/ort.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,9 @@
+torch
+torchvision
+datasets
+transformers
+requests
+kaggle
+pandas
+flask
+flask-cors
