@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Poèmes IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Générateur de Poèmes IA</h1>
+            <p>Entrez un mot et laissez l'IA créer un poème pour vous</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="startWord">Mot de départ :</label>
+                <input type="text" id="startWord" placeholder="Ex: amour, nature, rêve..." maxlength="30">
+                <button id="generateBtn">Générer un Poème</button>
+            </div>
+
+            <div class="output-section">
+                <h2>Poème :</h2>
+                <div id="poemOutput" class="poem-display">
+                    <p class="placeholder">Le poème apparaîtra ici...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

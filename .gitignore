@@ -1,0 +1,98 @@
+# === ENVIRONNEMENTS VIRTUELS ===
+.venv/
+venv/
+env/
+ENV/
+
+# === MODÈLES ENTRAÎNÉS (VOLUMINEUX) ===
+*.pth
+best_*.pth
+digit_*.pth
+mnist_*.pth
+poetry_generator.pth
+
+# Modèles ONNX - générés automatiquement à partir des .pth
+*.onnx
+web/*.onnx
+
+# === DATASETS ET DONNÉES ===
+data/MNIST/raw/
+data/MNIST/processed/
+*.gz
+*-ubyte
+*-idx3-ubyte
+*-idx1-ubyte
+
+# Autres datasets
+data/text/
+*.csv
+*.json
+*.txt
+data/**/*.csv
+data/**/*.json
+
+# === PYTHON ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# === JUPYTER NOTEBOOK ===
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# === CACHE ET TEMPORAIRES ===
+.cache/
+*.log
+*.tmp
+*.temp
+
+# === SYSTÈME D'EXPLOITATION ===
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+*.exe
+*.msi
+
+# === IDE ET ÉDITEURS ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === MODÈLES ET CHECKPOINTS ===
+checkpoints/
+models/
+weights/
+*.pt
+*.bin
+
+# === CONFIGURATION LOCALE ===
+.env
+.env.local
+config.local.py
+secrets.py
